@@ -11,9 +11,6 @@ RUN npm install
 # アプリコードをコピー
 COPY . .
 
-# TypeScriptビルド
-RUN npm run build
-
 # Prismaクライアント生成（開発用）
 RUN npx prisma generate
 
