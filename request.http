@@ -1,0 +1,78 @@
+### GET Todo一覧
+GET http://localhost:3000/api/todos/
+
+### GET Todoの検索
+GET http://localhost:3000/api/todos/?title=React
+
+###
+GET http://localhost:3000/api/todos/?body=予約
+
+###
+GET http://localhost:3000/api/todos?dueFrom=2025-04-01&dueTo=2025-04-06
+
+###
+GET http://localhost:3000/api/todos?completed=true
+
+
+### GET Todoの詳細
+### -------- id部分は各環境で変更必要 --------
+GET http://localhost:3000/api/todos/89278cc0-8284-47be-88a0-9e9beec1696d
+
+###
+GET http://localhost:3000/api/todos/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
+
+
+### POST Todoの作成(成功)
+POST http://localhost:3000/api/todos/
+content-type: application/json
+
+{
+    "title": "進撃の巨人一気見",
+    "body": "ゴールデンウィークに観たい",
+    "dueDate": "2025-05-09"
+}
+
+### POST Todoの作成(失敗)
+POST http://localhost:3000/api/todos/
+content-type: application/json
+
+{
+    "body": "これはエラーになります",
+    "dueDate": "2025-05-09"
+}
+
+
+### POST Todoの複製
+POST http://localhost:3000/api/todos/fe45e644-af8e-4c41-9db9-1caaa4d726b9/duplicate
+
+
+
+### PATCH Todoの更新
+PATCH http://localhost:3000/api/todos/ca522ea1-7a36-432d-98c4-58879b3972ec
+content-type: application/json
+
+{
+    "completedAt": "2025-05-08"
+}
+
+###
+PATCH http://localhost:3000/api/todos/ca522ea1-7a36-432d-98c4-58879b3972ec
+content-type: application/json
+
+{
+    "title": "やっぱりワンピースにする",
+    "body": "空島まで見る",
+    "dueDate": ""
+}
+
+###
+PATCH http://localhost:3000/api/todos/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
+content-type: application/json
+
+{
+    "title": "ドラゴンボール読み返し"
+}
+
+
+### DELETE Todoの削除
+DELETE http://localhost:3000/api/todos/ca522ea1-7a36-432d-98c4-58879b3972ec
